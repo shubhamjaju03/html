@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Details</title>
+</head>
+<body>
+  <h1>Select your branch</h1>
+  <form>
+    <label><input type="radio" name="branch" value="B.Tech" /> B.Tech</label><br />
+    <label><input type="radio" name="branch" value="CE" /> CE</label><br /><br />
+
+    Name: <input type="text" id="username" placeholder="Enter your name" /><br /><br />
+    Age: <input type="text" id="age" placeholder="Enter your age" /><br /><br />
+
+    <input type="button" value="Submit" onclick="showMessage()" />
+  </form>
+
+  <p id="message" style="font-weight: bold;"></p>
+
+  <script>
+    function showMessage() {
+      let name = document.getElementById("username").value.trim();
+      let age = document.getElementById("age").value.trim();
+      let msg = document.getElementById("message");
+
+      if (!name && !age) {
+        msg.style.color = "red";
+        msg.innerText = "No data has been entered.";
+      } else if (!name) {
+        msg.style.color = "red";
+        msg.innerText = "Name is required!";
+      } else if (!age) {
+        msg.style.color = "red";
+        msg.innerText = "Age is required!";
+      } else {
+        msg.style.color = "green";
+        msg.innerText = "Details have been saved successfully!";
+      }
+    }
+  </script>
+</body>
+</html>
